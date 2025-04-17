@@ -8,12 +8,10 @@ import {
   Users2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 
 function HomePage() {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -35,15 +33,18 @@ function HomePage() {
             </a>
           </div>
           <div className="flex space-x-4">
+            <Link to="/login">
             <Button variant="ghost" className="text-white hover:text-blue-100">
               Sign in
             </Button>
+            </Link>
+            <Link to="/candidate-signup">
             <Button
               variant="secondary"
-              onClick={() => navigate("/employer-signup")}
             >
               Join Now
             </Button>
+            </Link>
           </div>
         </nav>
 
@@ -64,14 +65,18 @@ function HomePage() {
                 job search and hiring efficient, transparent, and successful.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Link to="/employer-signup">
                 <Button size="lg" className="bg-primary hover:bg-[#006097]">
                   Find Talent
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
+                </Link>
+                <Link to="/candidate-signup">
                 <Button size="lg" variant="outline">
                   Find Work
                   <Search className="ml-2 h-5 w-5" />
                 </Button>
+                </Link>
               </div>
             </div>
             <div className="relative rounded-lg bg-gray-100">
@@ -212,12 +217,16 @@ function HomePage() {
               discovered the Aguka advantage.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link to="/employer-signup">
               <Button size="lg" variant="secondary">
                 Hire Talent
               </Button>
+              </Link>
+              <Link to="/candidate-signup">
               <Button size="lg" variant="secondary">
                 Find Work
               </Button>
+              </Link>
             </div>
           </div>
         </div>
