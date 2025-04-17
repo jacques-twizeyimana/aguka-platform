@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAuth } from "@/lib/auth";
 import { supabase } from "@/lib/supabase";
 import EmployerLayout from "./Layout";
 import {
@@ -48,7 +47,6 @@ interface Application {
 
 export default function JobDetails() {
   const { id } = useParams();
-  const { user } = useAuth();
   const { toast } = useToast();
   const [job, setJob] = useState<Job | null>(null);
   const [applications, setApplications] = useState<Application[]>([]);
@@ -91,6 +89,7 @@ export default function JobDetails() {
         .order("created_at", { ascending: false });
 
       if (appError) throw appError;
+      // @ts-ignore
       setApplications(appData);
     } catch (error: any) {
       toast({

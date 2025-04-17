@@ -70,7 +70,7 @@ export default function Test() {
       mediaRecorder.start();
 
       // Get location
-      const position = await new Promise((resolve: any) => {
+      const position = await new Promise<GeolocationPosition>((resolve) => {
         navigator.geolocation.getCurrentPosition(resolve);
       });
 

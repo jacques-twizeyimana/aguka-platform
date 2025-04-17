@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "@/lib/auth";
 import { supabase } from "@/lib/supabase";
 import AdminLayout from "./Layout";
 import {
@@ -59,13 +58,8 @@ interface TestQuestion {
 const seniorities = ["junior", "mid", "senior", "expert"];
 
 export default function AdminCategories() {
-  const { user } = useAuth();
   const { toast } = useToast();
   const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
-  );
   const [selectedSpecialization, setSelectedSpecialization] =
     useState<Specialization | null>(null);
   const [newCategory, setNewCategory] = useState({ name: "", description: "" });
@@ -121,9 +115,7 @@ export default function AdminCategories() {
         title: "Error",
         description: error.message,
       });
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   const fetchQuestions = async (specializationId: string) => {

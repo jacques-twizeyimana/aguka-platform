@@ -32,8 +32,7 @@ const formSchema = z.object({
 });
 
 // type error extends unknown
-type _Error =
-  | {
+type _Error =  {
       message: string;
       code?: string;
       details?: string;
@@ -123,7 +122,7 @@ export default function CompanyDetails() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: error?.message,
+        description: error && typeof error === "object" && "message" in error ? (error as any).message : "An unknown error occurred",
       });
     }
   };

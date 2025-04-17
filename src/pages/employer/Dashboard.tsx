@@ -44,10 +44,11 @@ export default function EmployerDashboard() {
           .eq('status', 'pending')
           .in(
             'job_id',
-            supabase
+            (await supabase
               .from('jobs')
               .select('id')
               .eq('employer_id', user.id)
+            ).data?.map(job => job.id) || []
           ),
         supabase
           .from('applications')
@@ -55,10 +56,11 @@ export default function EmployerDashboard() {
           .eq('status', 'accepted')
           .in(
             'job_id',
-            supabase
+            (await supabase
               .from('jobs')
               .select('id')
               .eq('employer_id', user.id)
+            ).data?.map(job => job.id) || []
           ),
       ]);
 

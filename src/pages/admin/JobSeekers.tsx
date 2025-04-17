@@ -87,6 +87,7 @@ export default function AdminJobSeekers() {
         const { data, error } = await query;
 
         if (error) throw error;
+        // @ts-ignore
         setJobSeekers(data || []);
       } catch (error) {
         console.error('Error fetching job seekers:', error);

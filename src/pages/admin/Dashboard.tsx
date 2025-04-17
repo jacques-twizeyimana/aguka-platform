@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useAuth } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import AdminLayout from './Layout';
 import { Users, Building2, BriefcaseIcon, HardHat as UserHardHat } from 'lucide-react';

@@ -68,6 +68,7 @@ export default function TestPrep() {
 
     if (data) {
       setTestInfo({
+        // @ts-ignore
         specialization: data.specialization.name,
         seniority: data.seniority,
         lastTestDate: data.last_test_date,
@@ -89,9 +90,9 @@ export default function TestPrep() {
       setDeviceChecks((prev) => ({ ...prev, microphone: true }));
 
       // Check location
-      const position = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
+      // const position = await new Promise((resolve, reject) => {
+      //   navigator.geolocation.getCurrentPosition(resolve, reject);
+      // });
       setDeviceChecks((prev) => ({ ...prev, location: true }));
 
       // Request fullscreen
