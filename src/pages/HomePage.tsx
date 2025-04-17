@@ -74,11 +74,10 @@ function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative rounded-lg bg-gray-100">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80"
                 alt="Professional meeting"
-                className="rounded-lg shadow-2xl"
               />
             </div>
           </div>
